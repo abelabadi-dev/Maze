@@ -1,2 +1,2 @@
 # Maze
-a page with a "maze" to navigate with the mouse.
+A "maze" to navigate with the mouse, implemented in jQuery.
