@@ -4,15 +4,15 @@
 var maze = (function () {
 
 	function init() {
-		won = false;
+		//won = false;
 		status("Click the \"S\" to begin.");
 		$('#start').on("click",start);
 	}
 	function start() {
 		//played
-		if (played === true) {
+		//if (played === true) {
 			$('#maze .boundary').removeClass("youlose");
-		}
+		//}
 		//you lose!
 		$('#maze').on('mouseenter','.boundary',function () {
 			
@@ -22,7 +22,11 @@ var maze = (function () {
 				$('#end').off('click');
 				setTimeout(init,1500);
 		});
-
+		$('#maze').on('mouseleave',function () {
+				$('#end').off('click');
+				status("<b>out of maze</b>")
+				setTimeout(init,1500);
+		});
 		//you win!
 		$('#end').on("click",function () {
 			won = true;
