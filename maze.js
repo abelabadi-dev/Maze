@@ -2,9 +2,6 @@
 @abule
 */
 var maze = (function () {
-	var played = false;
-	var won = false;
-	var lost = false;
 
 	function init() {
 		won = false;
@@ -17,23 +14,21 @@ var maze = (function () {
 			$('#maze .boundary').removeClass("youlose");
 		}
 		//you lose!
-		$('.boundary').mouseenter(function () {
-			if (won == true){ // reset game after winning.
-				location.reload();
-			}else{
+		$('#maze').on('mouseenter','.boundary',function () {
+			
 				$('#maze .boundary').addClass("youlose");
 				status("<b>You lose!</b>");
 				played = true;
-			}
-			
-			//$(#end).on("click",init());
+				$('#end').off('click');
+				setTimeout(init,1500);
 		});
 
 		//you win!
 		$('#end').on("click",function () {
 			won = true;
 			status("<b>You win!</b>");
-			//init();
+			$('#maze').off("mouseenter");
+			setTimeout(init,2000);
 		});
 
 	}
