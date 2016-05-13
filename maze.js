@@ -18,7 +18,7 @@ var maze = (function () {
 			
 				$('#maze .boundary').addClass("youlose");
 				status("<b>You lose!</b>");
-				played = true;
+				//played = true;
 				$('#end').off('click');
 				setTimeout(init,1500);
 		});
@@ -29,7 +29,7 @@ var maze = (function () {
 		});
 		//you win!
 		$('#end').on("click",function () {
-			won = true;
+			//won = true;
 			status("<b>You win!</b>");
 			$('#maze').off("mouseenter");
 			setTimeout(init,2000);
